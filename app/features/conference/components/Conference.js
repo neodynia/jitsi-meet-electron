@@ -4,6 +4,7 @@ import { Component } from 'react';
 
 import {
     RemoteControl,
+    setupGoogleApiForWindow,
     setupScreenSharingForWindow,
     setupAlwaysOnTopRender,
     setupWiFiStats
@@ -51,6 +52,7 @@ export default class Conference extends Component<*> {
         const api = new JitsiMeetExternalAPI(config.defaultDomain);
         const iframe = api.getIFrame();
 
+        setupGoogleApiForWindow(iframe);
         setupScreenSharingForWindow(iframe);
         new RemoteControl(iframe); // eslint-disable-line no-new
         setupAlwaysOnTopRender(api);

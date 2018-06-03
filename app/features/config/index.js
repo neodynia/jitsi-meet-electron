@@ -8,5 +8,5 @@ export default {
     /**
      * The domain of the Jitsi Meet deployment that will be used.
      */
-    defaultDomain: 'meet.jit.si'
+    defaultDomain: 'lenny.jitsi.net'
 };

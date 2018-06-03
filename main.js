@@ -3,11 +3,13 @@
 const electron = require('electron');
 const APP = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const ipcMain = electron.ipcMain;
 
 const isDev = require('electron-is-dev');
 
 const {
-    setupAlwaysOnTopMain
+    setupAlwaysOnTopMain,
+    setupGoogleApiWindowOpener,
 } = require('jitsi-meet-electron-utils');
 
 const path = require('path');
@@ -93,7 +95,7 @@ function createJitsiMeetWindow() {
     });
 
     setupAlwaysOnTopMain(jitsiMeetWindow);
-
+    setupGoogleApiWindowOpener(ipcMain);
     jitsiMeetWindow.on('closed', () => {
         jitsiMeetWindow = null;
     });
